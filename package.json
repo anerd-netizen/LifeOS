@@ -1,0 +1,19 @@
+{
+  "name": "lifeos",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A calm personal productivity app: tasks, habits, calendar, focus timer, notes and analytics.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "chart.js": "^4.6.1",
+    "lucide": "^1.67.0"
+  },
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
+}
