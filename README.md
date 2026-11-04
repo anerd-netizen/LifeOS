@@ -1,45 +1,90 @@
 # LifeOS
 
-A calm, frontend-only personal productivity app: tasks, habits, calendar, Pomodoro focus mode, notes and analytics.
-Built with HTML, CSS and vanilla JavaScript (ES modules), bundled with Vite. Charts by Chart.js, icons by Lucide.
-All data is stored in your browser's `localStorage`. There is no backend, no account and no tracking.
+A calm, frontend-only personal productivity app that brings tasks, habits, a calendar, a focus timer, notes and analytics into one workspace.
 
-**Live demo:** https://YOUR-PROJECT.vercel.app
+**Live demo:** https://LifeOS-anerd.vercel.app
 
 ## Features
 
-- **Overview:** today's tasks, habit streaks, focus time and a weekly score
-- **Tasks:** priorities, categories, due dates, overdue tracking
+- **Overview:** today's tasks, habit streaks, focus time and a weekly score at a glance
+- **Tasks:** priorities, categories, due dates and overdue tracking
 - **Habits:** daily check-ins with streaks and completion rates
-- **Calendar:** month view with tasks on their due dates
-- **Focus mode:** Pomodoro timer with session history
+- **Calendar:** month view showing tasks on their due dates
+- **Focus mode:** Pomodoro timer with session tracking
 - **Notes:** create, edit and search notes
-- **Analytics:** charts for completion trends, habits and focus minutes
+- **Analytics:** charts for task completion, habits and focus minutes
 - **Settings:** light, dark or system theme; load sample data or clear everything
 
-## Structure
+## Privacy
 
-- `index.html`: app shell (sidebar, top bar, view container)
-- `css/style.css`: design system and component styles (light and dark themes)
-- `js/app.js`: bootstrap, hash router, search, notifications, theme
-- `js/store.js`, `seed.js`, `stats.js`, `utils.js`: state, sample data, derived metrics, helpers
-- `js/overview.js`, `tasks.js`, `habits.js`, `calendar.js`, `timer.js`, `notes.js`, `analytics.js`, `settings.js`: pages
-- `js/ui.js`, `js/charts.js`: modal, toast and icon helpers, Chart.js setup
+All data stays in your browser's `localStorage`. There is no backend, no account and no analytics or tracking. The only outside request is Google Fonts, used for the Geist typeface. Clearing your browser data removes your LifeOS data, so back up anything you need first.
+
+## Tech stack
+
+| Area       | Choice                                           |
+| ---------- | ------------------------------------------------ |
+| Language   | Vanilla JavaScript (ES modules), HTML5, CSS3     |
+| Build tool | Vite                                             |
+| Charts     | Chart.js                                         |
+| Icons      | Lucide                                           |
+| Routing    | Hash-based router (`#/overview`, `#/tasks`, ...) |
+| State      | Central store persisted to `localStorage`        |
+| Theming    | CSS custom properties with light and dark themes |
+
+## Project structure
+
+```
+index.html          App shell (sidebar, top bar, view container)
+css/style.css       Design system and component styles
+js/app.js           Bootstrap, router, search, notifications, theme
+js/store.js         State store with localStorage persistence
+js/seed.js          Sample data
+js/stats.js         Derived metrics (streaks, completion rates, scores)
+js/utils.js         Date and string helpers
+js/ui.js            Modals, toasts, icon helpers
+js/charts.js        Chart.js setup
+js/overview.js      Overview page
+js/tasks.js         Tasks page
+js/habits.js        Habits page
+js/calendar.js      Calendar page
+js/timer.js         Focus timer page
+js/notes.js         Notes page
+js/analytics.js     Analytics page
+js/settings.js      Settings page
+```
 
 ## Run locally
 
+You need [Node.js](https://nodejs.org) (LTS).
+
 ```bash
+git clone https://github.com/anerd-netizen/LifeOS.git
+cd LifeOS
 npm install
 npm run dev
 ```
 
+Open the address Vite prints (usually `http://localhost:5173`).
+
 ## Build
 
 ```bash
-npm run build
-npm run preview
+npm run build     # outputs to dist/
+npm run preview   # serves the production build locally
 ```
 
 ## Deploy
 
-Import the repo into Vercel. It detects Vite automatically (build command `npm run build`, output directory `dist`).
+Import the repository into [Vercel](https://vercel.com). It detects Vite automatically (build command `npm run build`, output directory `dist`). Every push to `main` redeploys.
+
+## Ideas for next steps
+
+- Export and import data as JSON
+- Recurring tasks and reminders
+- Drag and drop to reorder tasks
+- Installable PWA with offline support
+- Optional cloud sync
+
+## License
+
+MIT
